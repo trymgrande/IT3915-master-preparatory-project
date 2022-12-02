@@ -2,3 +2,5 @@ yolov7/
 *.cache
 Merged-sheep-dataset-2/
 Merged-sheep-dataset-3/
+.vscode/
+runs/
