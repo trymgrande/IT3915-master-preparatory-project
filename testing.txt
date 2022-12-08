@@ -1,0 +1,14 @@
+tests:
+batch size: 
+32GB/174 passed (5.4375 per GB => 435/80GB)
+32GB/200 did not pass
+435/80GB did not pass, was also slower (3 min instead of 2+ min)
+400/2x80GB did not pass, killed before starting
+186/32GB did not pass
+180/32GB did not pass
+
+reference:
+100, 200, 300 epochs stock dataset
+
+
+augmentations:
