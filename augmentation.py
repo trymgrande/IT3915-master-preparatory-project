@@ -1,6 +1,18 @@
-import os
+"""
+This script is made with the implementation of the augmentation library Albumentations, as well as a dataset stored using Roboflow. It downloads a copy of the dataset and performs augmentation on the first given number of images, that are then added to the local copy of the dataset.
+"""
+
 import sys
-print(sys.argv[1])
+import random
+import cv2
+from matplotlib import pyplot as plt
+import matplotlib.patches as patches
+import numpy as np
+import albumentations as A
+from cmath import inf
+from PIL import Image
+import os, os.path
+import shutil
 
 # set parameters
 PROJECT_NAME = "Merged-sheep-dataset"
@@ -8,28 +20,21 @@ PROJECT_VERSION = 3
 PROJECT_DIRECTORY = f"{PROJECT_NAME}-{PROJECT_VERSION}"
 
 AUGMENTATION = True
-AUGMENTATIONS = float('inf')
-# AUGMENTATIONS = 2
+# AUGMENTATIONS = float('inf')
+AUGMENTATIONS = 3250
 
-print("downloading dataset")
+
 
 # download dataset
+print("downloading dataset...")
 from roboflow import Roboflow
 rf = Roboflow(api_key="Sf4Q132h8vYyzxbVfF7t")
 project = rf.workspace("it3915masterpreparatoryproject").project("merged-sheep-dataset")
 dataset = project.version(PROJECT_VERSION).download("yolov7")
+print("dataset downloaded")
 
-print("downloaded dataset")
 
 # augmentation plot utils
-import random
-import cv2
-from matplotlib import pyplot as plt
-import matplotlib.patches as patches
-import numpy as np
-import albumentations as A
-
-
 
 def plot_examples(images, bboxes=None):
     fig = plt.figure(figsize=(15, 15))
@@ -83,26 +88,13 @@ def draw_rect_with_labels(img, bboxes,class_id, class_dict={1: 'sheep'}, color=N
     return img
 
 # augmentation classification
-from cmath import inf
-import cv2
-import albumentations as A
-import numpy as np
-from PIL import Image
-import os, os.path
-import shutil
-import sys
 
 from augmentation_transformations import transformations_dict
 
-
 # if AUGMENTATION: 
-print("starting augmentation")
-
 transformation_number = sys.argv[1]
-print(transformation_number)
+print(f"starting augmentation with transformation number {transformation_number}...")
 transformation = transformations_dict[int(transformation_number)]
-# print(int(transformation_number))
-
 CLASS_LABEL = 'sheep'
 CLASS = 0
 
