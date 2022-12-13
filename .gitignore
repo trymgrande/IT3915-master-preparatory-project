@@ -4,3 +4,4 @@ Merged-sheep-dataset-2/
 Merged-sheep-dataset-3/
 .vscode/
 job-environment-*/
+epoch_*.pt

@@ -8,23 +8,9 @@ Vi foreslår anvendelse av drone utstyrt med normalt kamera og infrarødt kamera
 Vi ønsker her en gruppe på to eller tre studenter. Den ene studenten vil arbeide med utviklingen av bildeanalysen. Den andre vil utføre sammenstilling av de to typer av bilder der det i minst ett av de er detektert mulig sau. Den tredje studenten vil utvikle presentasjonssystemet overfor bønder som viser kartmessig hvor i terrenget sau er funnet. \
 Vi har her behov for to studenter som har kunnskap i bildeanalyse og bilde samstilling. Den tredje studenten har generell informasjonsteknologi-bakgrunn. \
 
-The project has been done under the supervision of [Svein-Olaf Hvasshovd](https://www.ntnu.no/ansatte/sophus) at [NTNU](https://www.ntnu.no/).
+The project has been done under the supervision of [Svein-Olaf Hvasshovd](https://www.ntnu.no/ansatte/sophus) at [NTNU](https://www.ntnu.no/), and has focused on image augmentation transformations in order to improve the original dataset. This is a project meant to prepare for the master's thesis.
 
-The project has focused on image augmentation transformations in order to improve the original dataset being used.
-
-## Dataset
-
-Roboflow
-
-## Mahine Learning Model
-This implementation uses the state of the art model for object detection - [YOLOv7](https://github.com/WongKinYiu/yolov7):
-
-
-Weights
-
-## Parameters
-detect.py --conf
-
+This implementation uses the state of the art machine learning algorithm for object detection - [YOLOv7](https://github.com/WongKinYiu/yolov7), with [this dataset](https://app.roboflow.com/it3915masterpreparatoryproject/merged-sheep-dataset/3).
 
 
 ## Installation
@@ -40,12 +26,13 @@ sbatch job.slurm <augmentation_id>
 ```
 where the "augmentation_id" is a number corresponding to the desired augmentation transformation found in [augmentation_transformations.py](augmentation_transformations.py). Each job will automatically be assigned a unique job ID by the GPU cluster.
 
-The job-environment-<job_id> directory contains all the necessary files for performing augmentation, training, and testing on a new copy of the dataset.
+The job-environment-<job_id>-<augmentation_id> directory contains all the necessary files for performing augmentation, training, and testing on a new copy of the dataset.
 
-The train and test results are copied from this directory, into runs/run-<job_id>.
+The train and test results are copied from this directory, into runs/run-<job_id>-<augmentation_id>.
 
-A log for each job is generated with the name "slurm-<job_id>, where the given augmentation_id is shown, as well as the entire pipeline process including errors if any occur.
+A log for each job is generated with the name "slurm-<job_id>, where the entire pipeline process is logged including errors if any occur.
 
 After the results are verified and the job has been completed successfully, the job-environment directory may be deleted.
 
-## Further work
+## Report
+See [Project Report](Project_Report.pdf).

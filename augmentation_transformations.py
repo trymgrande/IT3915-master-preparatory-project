@@ -1,5 +1,5 @@
 """
-template:
+example transformatin:
 [
     A.RandomCrop(width=640, height=640),
     A.Rotate(border_mode=cv2.BORDER_CONSTANT),
@@ -12,11 +12,16 @@ template:
     ], p=1.0),
     A.RandomBrightnessContrast()
 ]
+
+See more transformations here: https://albumentations.ai/docs/api_reference/full_reference/
 """
 import albumentations as A
 import cv2
 
 transformations_dict = {
+    0: [
+
+    ],
     1: [
         A.HorizontalFlip(),
         A.VerticalFlip()
