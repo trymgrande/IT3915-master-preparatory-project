@@ -91,7 +91,6 @@ def draw_rect_with_labels(img, bboxes,class_id, class_dict={1: 'sheep'}, color=N
 
 from augmentation_transformations import transformations_dict
 
-# if AUGMENTATION: 
 transformation_number = sys.argv[1]
 print(f"starting augmentation with transformation number {transformation_number}...")
 transformation = transformations_dict[int(transformation_number)]

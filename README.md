@@ -19,20 +19,14 @@ This implementation uses the state of the art machine learning algorithm for obj
 - Clone [this repository](https://github.com/trymgrande/IT3915-master-preparatory-project) on the login node after connecting.
 
 ## Running on the NTNU Idun Cluster
-- See the full [documentation for running jobs](https://www.hpc.ntnu.no/idun/getting-started-on-idun/running-jobs/) on the IDUN GPU Cluster.
-- A job can be queued by running:
+See the full documentation for [running jobs on the IDUN GPU Cluster](https://www.hpc.ntnu.no/idun/getting-started-on-idun/running-jobs/).
+A job can be queued by running:
 ```bash
 sbatch job.slurm <augmentation_id>
 ```
 where the "augmentation_id" is a number corresponding to the desired augmentation transformation found in [augmentation_transformations.py](augmentation_transformations.py). Each job will automatically be assigned a unique job ID by the GPU cluster.
 
-The job-environment-<job_id>-<augmentation_id> directory contains all the necessary files for performing augmentation, training, and testing on a new copy of the dataset.
-
-The train and test results are copied from this directory, into runs/run-<job_id>-<augmentation_id>.
-
-A log for each job is generated with the name "slurm-<job_id>, where the entire pipeline process is logged including errors if any occur.
-
-After the results are verified and the job has been completed successfully, the job-environment directory may be deleted.
+The job-environment-<job_id>-<augmentation_id> directory contains all the necessary files for performing augmentation, training, and testing on a new copy of the dataset. The training results are copied from this directory, into runs/run-<job_id>-<augmentation_id>. A log for each job is generated with the name "slurm-<job_id>, where the entire pipeline process is logged including errors if any occur. After the results are verified and the job has been completed successfully, the job-environment directory may be deleted.
 
 ## Report
 See [Project Report](Project_Report.pdf).
