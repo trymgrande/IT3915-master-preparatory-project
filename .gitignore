@@ -5,3 +5,4 @@ Merged-sheep-dataset-3/
 .vscode/
 job-environment-*/
 epoch_*.pt
+.ipynb_checkpoints/
