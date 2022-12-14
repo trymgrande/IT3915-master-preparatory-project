@@ -29,4 +29,4 @@ where the "augmentation_id" is a number corresponding to the desired augmentatio
 The job-environment-<job_id>-<augmentation_id> directory contains all the necessary files for performing augmentation, training, and testing on a new copy of the dataset. The training results are copied from this directory, into runs/run-<job_id>-<augmentation_id>. A log for each job is generated with the name "slurm-<job_id>, where the entire pipeline process is logged including errors if any occur. After the results are verified and the job has been completed successfully, the job-environment directory may be deleted.
 
 ## Report
-See [Project Report](Project_Report.pdf).
+See [Project Report](Project_report.pdf).
